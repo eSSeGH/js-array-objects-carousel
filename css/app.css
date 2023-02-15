@@ -4,3 +4,37 @@
     box-sizing: border-box;
 }
 
+.slide img {
+    width:100%;
+    aspect-ratio: 12/9;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide {
+    display: none;
+}
+
+.carousel {
+    position: relative;
+}
+
+.carousel .carousel-arrow {
+    position: absolute;
+    font-size: 40px;
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-arrow.arrow-left {
+    left: 20px;
+}
+
+.carousel-arrow.arrow-right {
+    right: 20px;
+}

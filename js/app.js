@@ -26,8 +26,8 @@ console.log(slideObj[0].image)
 
 slideUrls = []
 
-slideObj.forEach(el, index, array => {
-    const image = slideObj[el].image
+slideObj.forEach(el => {
+    const image = el.image
     slideUrls.push(image)
 })
 
@@ -37,13 +37,13 @@ console.log(slideUrls)
 // INSERT SLIDES HTML
 const carouselEl = document.getElementById("carousel")
 
-for (i = 0; i < slideUrls.length; i++) {
+slideUrls.forEach(el => {
 
-    if (i === 0) {
+    if (el == slideUrls[0]) {
 
         let singleSlideActiveEl = `
         <div class='slide active'>
-            <img src="${image[i]}" alt="">
+            <img src="${el}" alt="">
         </div>
         `
         carouselEl.innerHTML += singleSlideActiveEl
@@ -51,12 +51,16 @@ for (i = 0; i < slideUrls.length; i++) {
 
         let singleSlideEl = `
         <div class='slide'>
-            <img src="${image[i]}" alt="">
+            <img src="${el}" alt="">
         </div>
         `
         carouselEl.innerHTML += singleSlideEl
     }
-}
+})
+
+// recuperare gli elementi slide
+
+const slideEls = document.querySelectorAll(".slide")
 
 // recuperare le freccette
 const arrowLeftEl = document.getElementById("arrow-left")
