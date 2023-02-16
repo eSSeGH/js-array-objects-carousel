@@ -22,28 +22,17 @@ const slideObj = [
     }
 ]
 
-console.log(slideObj[0].image)
-
-slideUrls = []
-
-slideObj.forEach(el => {
-    const image = el.image
-    slideUrls.push(image)
-})
-
-console.log(slideUrls)
-
 
 // INSERT SLIDES HTML
 const carouselEl = document.getElementById("carousel")
 
-slideUrls.forEach(el => {
+slideObj.forEach(el => {
 
-    if (el == slideUrls[0]) {
+    if (el == slideObj[0]) {
 
         let singleSlideActiveEl = `
         <div class='slide active'>
-            <img src="${el}" alt="">
+            <img src="${el.image}" alt="">
         </div>
         `
         carouselEl.innerHTML += singleSlideActiveEl
@@ -51,7 +40,7 @@ slideUrls.forEach(el => {
 
         let singleSlideEl = `
         <div class='slide'>
-            <img src="${el}" alt="">
+            <img src="${el.image}" alt="">
         </div>
         `
         carouselEl.innerHTML += singleSlideEl
