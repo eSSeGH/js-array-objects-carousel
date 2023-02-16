@@ -67,7 +67,9 @@ const arrowRightEl = document.getElementById("arrow-right")
 // arrivati di volta in volta con le freccette
 let indexSlide = 0
 
-arrowRightEl.addEventListener("click", function () {
+arrowRightEl.addEventListener("click", nextSlide)
+
+function nextSlide () {
     console.log("next slide")
 
     // nascondere la slide corrente
@@ -85,9 +87,11 @@ arrowRightEl.addEventListener("click", function () {
     let nextSlide = slideEls[indexSlide]
     nextSlide.classList.add("active")
 
-})
+}
 
-arrowLeftEl.addEventListener("click", function () {
+arrowLeftEl.addEventListener("click", precSlide)
+
+function precSlide() {
     console.log("prec slide")
 
     // nascondere la slide corrente
@@ -105,4 +109,22 @@ arrowLeftEl.addEventListener("click", function () {
     let precSlide = slideEls[indexSlide]
     precSlide.classList.add("active")
 
+}
+
+let autoplay = setInterval(nextSlide, 3000)
+console.log(autoplay)
+
+// clear interval autoplay
+
+carouselEl.addEventListener("mouseenter", () => {
+    console.log("mouseenter")
+
+    clearInterval(autoplay)
+    autoplay = undefined
+})
+
+carouselEl.addEventListener("mouseleave", () => {
+    console.log("mouseleave")
+
+    autoplay = setInterval(nextSlide, 3000)
 })
