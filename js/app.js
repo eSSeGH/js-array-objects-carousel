@@ -32,6 +32,10 @@ slideObj.forEach(el => {
 
         let singleSlideActiveEl = `
         <div class='slide active'>
+            <div class="slide-overlay">
+                <h3>${el.title}</h3>
+                <p>${el.text}</p>
+            </div>
             <img src="${el.image}" alt="">
         </div>
         `
@@ -40,6 +44,10 @@ slideObj.forEach(el => {
 
         let singleSlideEl = `
         <div class='slide'>
+            <div class="slide-overlay">
+                <h3>${el.title}</h3>
+                <p>${el.text}</p>
+            </div>
             <img src="${el.image}" alt="">
         </div>
         `
